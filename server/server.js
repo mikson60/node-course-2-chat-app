@@ -25,9 +25,10 @@ io.on('connection', (socket) => {
     socket.emit('newMessage', generateMessage('Admin', 'Welcome to the Arena'));
     socket.broadcast.emit('newMessage', generateMessage('Admin', 'A challenger approaches'));
 
-    socket.on('createMessage', (message) => {
+    socket.on('createMessage', (message, callback) => {
         console.log('createMessage', message);
         io.emit('newMessage', generateMessage(message.from, message.text));
+        callback('Sent');
         // socket.broadcast.emit('newMessage', {   // send message to everybody except the sender socket
         //     from: message.from,
         //     text: message.text,
