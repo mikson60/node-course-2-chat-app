@@ -22,8 +22,8 @@ io.on('connection', (socket) => {
     console.log('New user connected');
 
     // Welcome messages
-    socket.emit('newMessage', generateMessage('Admin', 'Welcome to the Arena'));
-    socket.broadcast.emit('newMessage', generateMessage('Admin', 'A challenger approaches'));
+    socket.emit('newMessage', generateMessage('Admin', 'Welcome to the Badass Secret Chat'));
+    socket.broadcast.emit('newMessage', generateMessage('Admin', 'A badass approaches'));
 
     socket.on('createMessage', (message, callback) => {
         console.log('createMessage', message);
