@@ -19,17 +19,33 @@ app.use(express.static(publicPath));
 io.on('connection', (socket) => {
     console.log('New user connected');
 
-    socket.on('disconnect', (reason) => {
-        console.log('Client disconnected');
+    // Welcome messages
+    socket.emit('newMessage', {
+        from: 'Admin',
+        text: 'Welcome to the Arena'
+    });
+    socket.broadcast.emit('newMessage', {
+        from: 'Admin',
+        text: 'A challenger approaches',
+        createdAt: new Date().getTime()
     });
 
     socket.on('createMessage', (message) => {
         console.log('createMessage', message);
-        io.emit('newMessage', {
+        io.emit('newMessage', {              // send message to everybody
             from: message.from,
             text: message.text,
             createdAt: new Date().getTime()
         });
+        // socket.broadcast.emit('newMessage', {   // send message to everybody except the sender socket
+        //     from: message.from,
+        //     text: message.text,
+        //     createdAt: new Date().getTime()
+        // });
+    });
+
+    socket.on('disconnect', (reason) => {
+        console.log('Client disconnected');
     });
 });
 
