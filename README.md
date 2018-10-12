@@ -16,4 +16,4 @@ The web application is live on Heroku: https://warm-shore-34185.herokuapp.com/
 In order for having 2 or more people in the same room, the entered room name must match.
 
 ## How to build
-Clone the repository and run server.js using NodeJS.
+Clone the repository and run server.js using NodeJS. 
