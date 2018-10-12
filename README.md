@@ -4,6 +4,10 @@
 This is a browser chat application built based on the NodeJS course available on Udemy:
 https://www.udemy.com/the-complete-nodejs-developer-course-2/
 
+Other projects from the same course:
+1) NodeJS Todo List API - https://github.com/mikson60/node-course-2-todo-api
+2) NodeJS Webpage - https://github.com/mikson60/node-course-2-web-server
+
 ## Technical
 Uses NodeJS server to open up a websocket communication. Event emitters and receivers are set up on server and client-side.
 
